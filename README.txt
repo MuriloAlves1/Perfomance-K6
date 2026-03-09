@@ -1,3 +1,4 @@
+## Site: https://perfomance-k6.onrender.com/
 # 🚀 K6 Performance Academy
 
 > Plataforma interativa para execução e aprendizado de Testes de Performance utilizando Grafana K6 e Node.js.
@@ -66,3 +67,4 @@ Este projeto está configurado para rodar de forma híbrida. No ambiente Render,
 
 ```bash
 npm install && curl [https://github.com/grafana/k6/releases/download/v0.50.0/k6-v0.50.0-linux-amd64.tar.gz](https://github.com/grafana/k6/releases/download/v0.50.0/k6-v0.50.0-linux-amd64.tar.gz) -L | tar -xz --strip-components 1
+
