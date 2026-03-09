@@ -1,0 +1,135 @@
+:root {
+    --bg-gradient: linear-gradient(to right, #1e1332, #0f0c29);
+    --card-bg: rgba(45, 27, 84, 0.6);
+    --accent: #8b5cf6;
+    --accent-hover: #a855f7;
+    --text-main: #f8fafc;
+    --text-muted: #a78bfa;
+}
+
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background: var(--bg-gradient); 
+    color: var(--text-main);
+    margin: 0; padding: 40px 20px;
+    display: flex; justify-content: center; min-height: 100vh;
+}
+
+.container { max-width: 900px; width: 100%; }
+
+.header-info { text-align: center; margin-bottom: 30px; }
+.header-info h1 { color: var(--accent); font-size: 2.5em; text-shadow: 0 0 15px rgba(139, 92, 246, 0.4); }
+
+.intro-simples { background: rgba(139, 92, 246, 0.1); border-radius: 10px; padding: 20px; margin-bottom: 20px; border: 1px dashed var(--accent); text-align: left; }
+
+/* ABAS */
+.seletor-nivel { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
+.btn-nivel { 
+    padding: 12px 25px; border-radius: 10px; border: 2px solid #4c1d95; 
+    background: rgba(0,0,0,0.4); color: white; cursor: pointer; font-weight: bold; transition: 0.3s; 
+}
+.btn-nivel.active { background: var(--accent); box-shadow: 0 0 15px var(--accent); border-color: white; }
+
+.secao-nivel { display: none; animation: fadeIn 0.4s; }
+.secao-nivel.active { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+.card { 
+    background: var(--card-bg); padding: 30px; border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(139, 92, 246, 0.2);
+    backdrop-filter: blur(10px); margin-bottom: 20px;
+}
+
+.linha { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 15px; }
+.coluna { flex: 1; display: flex; flex-direction: column; }
+
+label { font-weight: 600; display: block; margin-bottom: 5px; color: #e2e8f0; }
+.explicacao { font-size: 0.75em; color: var(--text-muted); margin-bottom: 8px; font-style: italic; min-height: 2.5em; }
+
+input, select { 
+    width: 100%; padding: 12px; background: rgba(15, 12, 41, 0.8);
+    border: 1px solid #4c1d95; color: white; border-radius: 8px; box-sizing: border-box;
+}
+
+button[type="submit"] { 
+    width: 100%; padding: 20px; font-size: 1.2em; font-weight: bold; 
+    background: var(--accent); color: white; border: none; border-radius: 10px; 
+    cursor: pointer; transition: 0.3s; text-transform: uppercase;
+}
+button[type="submit"]:hover { background: var(--accent-hover); transform: translateY(-3px); }
+
+.legenda-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px; text-align: left; opacity: 0.8; }
+.legenda-item b { color: var(--accent); display: block; }
+
+/* CORES DE RESULTADO */
+.status-verde { border-left: 10px solid #2ecc71; }
+.status-amarelo { border-left: 10px solid #f1c40f; }
+.status-vermelho { border-left: 10px solid #e74c3c; }
+.texto-verde { color: #2ecc71; }
+.texto-amarelo { color: #f1c40f; }
+.texto-vermelho { color: #e74c3c; }
+.dado-caixa { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin: 10px 0; }
+
+
+/* --- NOVOS ESTILOS PARA O DASHBOARD DE RESULTADO --- */
+.grid-resultados {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.card-metrica {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.card-metrica span {
+    display: block;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.card-metrica b {
+    font-size: 1.8em;
+    color: #fff;
+}
+
+.diagnostico-box {
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+    border-left: 5px solid var(--accent);
+}
+
+.header-resultado {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.btn-voltar {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background: var(--accent);
+    color: white;
+}

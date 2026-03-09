@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>🚀 K6 Performance</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-info">
+            <h1>🚀 K6 Performance</h1>
+        </div>
+
+        <div class="intro-simples">
+            <h3>🤔 O que é isso?</h3>
+            <p>O <b>K6</b> cria "clientes robôs" para entrar no seu site ao mesmo tempo e medir se o servidor aguenta o peso sem ficar lento ou cair.</p>
+        </div>
+
+        <div class="seletor-nivel">
+            <button type="button" class="btn-nivel active" onclick="mudarNivel('iniciante', this)">🌱 Iniciante</button>
+            <button type="button" class="btn-nivel" onclick="mudarNivel('intermediario', this)">⚡ Intermediário</button>
+            <button type="button" class="btn-nivel" onclick="mudarNivel('avancado', this)">🔥 Avançado</button>
+        </div>
+
+        <form action="/rodar-teste" method="GET">
+            <input type="hidden" name="nivel_ativo" id="nivel_ativo" value="iniciante">
+
+            <div class="card">
+                <label>🎯 URL do Alvo</label>
+                <input type="url" name="url" value="https://test-api.k6.io/public/crocodiles/" required>
+            </div>
+
+            <div id="iniciante" class="secao-nivel active">
+                <div class="card" style="border-left: 5px solid #2ecc71;">
+                    <p><b>Modo Iniciante:</b> Teste simples de 10 segundos.</p>
+                    <div class="form-group">
+                        <label>👥 Usuários Virtuais</label>
+                        <input type="number" name="usuarios_ini" value="5">
+                    </div>
+                </div>
+            </div>
+
+            <div id="intermediario" class="secao-nivel">
+                <div class="card" style="border-left: 5px solid #f1c40f;">
+                    <p><b>Modo Intermediário:</b> Escolha o perfil de carga e o método.</p>
+                    <div class="linha">
+                        <div class="coluna">
+                            <label>👥 Usuários</label>
+                            <input type="number" name="usuarios_int" value="20">
+                        </div>
+                        <div class="coluna">
+                            <label>📈 Perfil</label>
+                            <select name="perfil_int">
+                                <option value="stress">Stress Test (Ramp-up)</option>
+                                <option value="constante">Carga Constante</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="linha">
+                        <div class="coluna">
+                            <label>⏱️ Duração</label>
+                            <select name="tempo_int">
+                                <option value="30s">30 Segundos</option>
+                                <option value="1m">1 Minuto</option>
+                            </select>
+                        </div>
+                        <div class="coluna">
+                            <label>📡 Método</label>
+                            <select name="metodo_int">
+                                <option value="GET">GET (Leitura)</option>
+                                <option value="POST">POST (Envio)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="avancado" class="secao-nivel">
+                <div class="card" style="border-left: 5px solid #e74c3c;">
+                    <p><b>Modo Avançado:</b> Defina SLAs rigorosos e segurança.</p>
+                    <div class="form-group">
+                        <label>🔑 Token Bearer</label>
+                        <input type="text" name="token_adv" placeholder="Bearer eyJhbGci...">
+                    </div>
+                    <div class="linha">
+                        <div class="coluna">
+                            <label>👥 Usuários</label>
+                            <input type="number" name="usuarios_adv" value="50">
+                        </div>
+                        <div class="coluna">
+                            <label>😴 Sleep</label>
+                            <select name="sleep_adv">
+                                <option value="0.1">0.1s (Rápido)</option>
+                                <option value="0">0s (Metralhadora)</option>
+                            </select>
+                        </div>
+                        <div class="coluna">
+                            <label>🛑 SLA (ms)</label>
+                            <input type="number" name="sla_adv" value="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">🔥 EXECUTAR TESTE AGORA</button>
+        </form>
+
+        <div class="legenda-container">
+            <div class="legenda-item"><b>👥 Usuários (VUs)</b> Robôs simulando pessoas reais.</div>
+            <div class="legenda-item"><b>📈 Perfil Stress</b> Os usuários entram aos poucos para aquecer.</div>
+            <div class="legenda-item"><b>😴 Sleep</b> Pausa entre um clique e outro do robô.</div>
+            <div class="legenda-item"><b>🛑 SLA</b> Nota de corte. Passou disso? O sistema está lento.</div>
+        </div>
+    </div>
+
+    <script>
+        function mudarNivel(nivel, btn) {
+            document.querySelectorAll('.btn-nivel').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.secao-nivel').forEach(s => s.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(nivel).classList.add('active');
+            document.getElementById('nivel_ativo').value = nivel;
+        }
+    </script>
+</body>
+</html>
