@@ -1,14 +1,8 @@
-## Site: https://perfomance-k6.onrender.com/
-# 🚀 K6 Performance Academy
+## 🚀 K6 Performance 
+Site: https://perfomance-k6.onrender.com/
 
-> Plataforma interativa para execução e aprendizado de Testes de Performance utilizando Grafana K6 e Node.js.
-
-![Dashboard Preview](https://img.shields.io/badge/Status-Live-success)
-![K6 Version](https://img.shields.io/badge/K6-0.50.0-blueviolet)
-![Node Version](https://img.shields.io/badge/Node.js-18+-green)
 
 ## 📋 Sobre o Projeto
-
 Este projeto foi desenvolvido como parte de um **PDI (Plano de Desenvolvimento Individual)** focado em Engenharia de Performance. O objetivo é democratizar o acesso aos testes de carga, permitindo que desenvolvedores e QAs configurem cenários de teste complexos através de uma interface visual amigável, sem a necessidade de manipular scripts manualmente de imediato.
 
 ### 🌟 Diferenciais
@@ -58,13 +52,3 @@ Este projeto foi desenvolvido como parte de um **PDI (Plano de Desenvolvimento I
 | **🌱 Iniciante** | Smoke Test | Valida se a API está "viva" sob carga mínima. |
 | **⚡ Intermediário** | Load Test | Avalia o comportamento do sistema com ramp-up de usuários. |
 | **🔥 Avançado** | Stress/Spike | Testa os limites do servidor e conformidade rigorosa de SLA. |
-
----
-
-## ☁️ Deploy no Render
-
-Este projeto está configurado para rodar de forma híbrida. No ambiente Render, o binário do K6 é baixado dinamicamente durante o build através do comando:
-
-```bash
-npm install && curl [https://github.com/grafana/k6/releases/download/v0.50.0/k6-v0.50.0-linux-amd64.tar.gz](https://github.com/grafana/k6/releases/download/v0.50.0/k6-v0.50.0-linux-amd64.tar.gz) -L | tar -xz --strip-components 1
-
